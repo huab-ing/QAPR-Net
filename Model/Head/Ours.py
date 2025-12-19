@@ -79,7 +79,7 @@ def qpa_loss(query_features, prototypes, labels, margin=0.3):
 
 
 class QAPR_Net(nn.Module):
-    def __init__(self,n_way,k_shot,query,
+    def __init__(self,n_way,k_shot,query,alpha = 0,
                 delta_ratios: list = [0.25, 0.5, 0.75],
                 prj_num: int = 14,
                 feat_dim: int = 64
@@ -90,8 +90,9 @@ class QAPR_Net(nn.Module):
         self.query = query
         self.prj_num = prj_num
         self.feat_dim = feat_dim
+        self.alpha = alpha
 
-        self.ais_loss = Angular_Isotonic_Loss(n_way=n_way, lamda=32, threshold=0.8)
+        self.ais_loss = Angular_Isotonic_Loss(n_way=n_way)
         
         self.delta_gate = DeltaGate(delta_ratios, feat_dim)
         
@@ -100,7 +101,6 @@ class QAPR_Net(nn.Module):
         self.temperature = nn.Parameter(torch.tensor(1.0))
         
         self.epoch = 0
-        self.ais_loss = Angular_Isotonic_Loss(n_way=n_way, lamda=32, threshold=0.8)
         
         self.delta_gate = DeltaGate(delta_ratios, feat_dim)
         self.cross_attn = QSA(feat_dim)
@@ -185,7 +185,7 @@ class QAPR_Net(nn.Module):
         # === loss ===
         
         cls_loss = self.ais_loss(cos_sim, label, self.epoch)
-        total_loss = cls_loss + 0.3 * align_loss
+        total_loss = cls_loss + self.alpha * align_loss
         
         pred = F.softmax(cos_sim, dim=-1)
 

@@ -7,22 +7,18 @@ def binarize(T, nb_classes):
     return torch.zeros(T.size(0), nb_classes, device=T.device).scatter_(1, T.view(-1, 1), 1)
 
 class Angular_Isotonic_Loss(nn.Module):
-    def __init__(self, n_way, lamda=32, mrg=0.1, threshold=0.8, debug=True):
+    def __init__(self, n_way, lamda=24, mrg=0.2, threshold=0.9, debug=True):
         super(Angular_Isotonic_Loss, self).__init__()
         self.n_way = n_way
         self.lamda = lamda
         self.mrg = mrg
         self.threshold = threshold
-        self.epoch = 0  # 初始化 epoch
+        self.epoch = 0
         self.debug = debug
-        self.intra_weight = 1.0
 
     def forward(self, cos_sim, labels, epoch=None):
-        # 使用 self.epoch 作为当前 epoch，如果传递了 epoch 参数则更新
         if epoch is not None:
-            self.epoch = epoch
-        
-        
+            self.epoch = epoch       
 
         cos_m = math.cos(self.mrg)
         sin_m = math.sin(self.mrg)
@@ -43,7 +39,7 @@ class Angular_Isotonic_Loss(nn.Module):
         P_sim_sum = (pos_exp * P_one_hot).sum(dim=1)
         N_sim_sum = (neg_exp * N_one_hot).sum(dim=1)
 
-        pos_term = self.intra_weight * torch.log1p(P_sim_sum)
+        pos_term = torch.log1p(P_sim_sum)
 
         neg_term = torch.log1p(N_sim_sum)
         loss = (pos_term + neg_term).mean()

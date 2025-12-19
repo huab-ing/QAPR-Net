@@ -10,10 +10,9 @@ from util.get_acc import cal_cfm
 
 import torch.nn as nn
 import logging
-logging.getLogger("matplotlib").setLevel(logging.WARNING)
 
 # ====== import model =========
-from Model.Img_few_shot import Image_fewshot_Net
+# from Model.Img_few_shot import Image_fewshot_Net
 from Model.Img_few_shot_prj import ThreeD_Support_Net
 # =============================
 
@@ -26,12 +25,11 @@ import yaml
 def get_arg():
 
     cfg=argparse.ArgumentParser()
-    cfg.add_argument('--exp_name',default='simple_try')
+    cfg.add_argument('--exp_name',default='')
 
     cfg.add_argument('--dataset',default='ModelNet40',choices=['ModelNet40','toy4k'])
 
     cfg.add_argument('--epochs',default=80)
-    cfg.add_argument('--decay_ep',default=10)
     cfg.add_argument('--lr',default=1e-3)
     cfg.add_argument('--train',action='store_true',default=False)
     cfg.add_argument('--device',default='cuda')
@@ -39,15 +37,9 @@ def get_arg():
 
     cfg.add_argument('--prj_num',default=14)
     
-    cfg.add_argument('--pretrain',default=True)
-    cfg.add_argument('--pretrain_path',default='./Pretrain/Exp/Pretrain_modelnet40_fold0/pth_file/epoch_99')
+    cfg.add_argument('--pretrain',default=False)
+    cfg.add_argument('--pretrain_path',default='./Pretrain/pth_file/epoch')
 
-
-
-    # ==== specify angle or object ===
-    
-    cfg.add_argument('--point_support',default=1,type=int)
-    cfg.add_argument('--mode',default='random',type=str)
     
     # ================================
 
@@ -62,7 +54,7 @@ def get_arg():
  
     # ========= Net config =================
 
-    cfg.add_argument('--backbone',default='ResNet',choices=['ResNet'])
+    cfg.add_argument('--backbone',default='Backbone network',choices=['ResNet'])
     cfg.add_argument('--fs_head',default='OursNet',choices=['OursNet'])
 
     # =====================================
@@ -70,7 +62,7 @@ def get_arg():
     # ========path needed =============
 
     # cfg.add_argument('--project_path',default='path to which you save your code')
-    cfg.add_argument('--data_path',default='path of the dataset, for example:path of ModelNet40-LS folder') # modelnet40
+    cfg.add_argument('--data_path',default='path of the dataset')
 
     # =================================
 

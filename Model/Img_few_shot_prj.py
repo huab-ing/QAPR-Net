@@ -19,14 +19,15 @@ import torch.nn as nn
 
 
 class ThreeD_Support_Net(nn.Module):
-    def __init__(self,n_way,k_shot,query,backbone='ResNet',fs='AINet',prj_num=14,pretrain=False,pretrain_path=None,alpha=0.3):
+    def __init__(self,n_way,k_shot,query,backbone='ResNet',fs='1',prj_num=14,pretrain=False,pretrain_path=None,alpha=0):
         super().__init__()
         self.alpha=alpha
         self.n=n_way
         self.k=k_shot
         self.query=query
         self.prj_num=prj_num
-        self.composite_num=0
+        self.composite_num = 0
+
         self.pretrain=pretrain
         self.pretrain_path=pretrain_path
 
@@ -54,7 +55,7 @@ class ThreeD_Support_Net(nn.Module):
     def get_fs(self,fs):
 
         if fs=='OursNet':
-            return QAPR_Net(self.n,self.k,self.query,prj_num=self.prj_num+self.composite_num)
+            return QAPR_Net(self.n,self.k,self.query,prj_num=self.prj_num+self.composite_num,alpha=0)
 
         else:
             raise ValueError('Not Implemented')

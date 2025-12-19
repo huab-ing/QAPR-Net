@@ -24,8 +24,7 @@ def get_arg():
     cfg.add_argument('--dataset',default='',choices=['ModelNet40','toy4k'])
     cfg.add_argument('--multigpu',default=False)
     cfg.add_argument('--epochs',default=100,type=int)
-    cfg.add_argument('--decay_ep',default=15,type=int)
-    cfg.add_argument('--gamma',default=0.7,type=float)
+    
     cfg.add_argument('--lr',default=1e-3,type=float)
     cfg.add_argument('--train',action='store_true',default=True)
     cfg.add_argument('--device',default='cuda')
