@@ -79,12 +79,11 @@ python Pretrain\main_pretrain.py \
 ## 5. Datasets
 The framework is designed to work with multi-view 3D datasets, leveraging 3D structural cues for robust prototype refinement:
 * **ModelNet40**: Standard 3D CAD dataset.
-* **Toys4K**: A large-scale 3D dataset featuring fine-grained object categories for challenging recognition tasks.
+* **Toys4K**: A large-scale 3D dataset featuring **fine-grained** object categories for challenging recognition tasks.
 > **Note**: Support samples are generated from multi-view 3D projections (14 views), while query samples can be either synthetic or real images depending on specific experimental configurations.Full access will be granted upon the official publication of the manuscript.
 ---
 ## 6. Notes
 * This codebase is primarily intended for research and academic use.
-* For clarity and research reproducibility considerations, certain implementation details—such as specific data preprocessing pipelines and evaluation protocols—are intentionally omitted from this repository.
 * For the exact experimental settings and hyper-parameters used in our paper, please refer to the original manuscript.
 ---
 ## 📜 License
