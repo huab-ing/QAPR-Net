@@ -1,0 +1,35 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Datasets
+*.tar
+*.zip
+*.npz
+*.npy
+ModelNet40-LS/
+TOYS4K/
+TOYS4K.tar
+ModelNet40-LS.tar
+
+# Checkpoints
+*.pth
+*.pt
+*.ckpt
+checkpoints/
+weights/
+runs/
+logs/
+
+# Large outputs & visualizations
+*.png
+*.jpg
+
+# VSCode
+.vscode/
+.DS_Store
+
+# Temporary
+CESHI.py
