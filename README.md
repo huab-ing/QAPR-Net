@@ -65,7 +65,7 @@ python main.py \
   --dataset $Dataset used for training$ \
   --data_path $/path/to/ModelNet40-LS$ \
   --fs_head $QAPR_Net$ \
-  --backbone &backbone network&
+  --backbone &backbone network
 ```
 ```bash
 python Pretrain\main_pretrain.py \
@@ -73,7 +73,7 @@ python Pretrain\main_pretrain.py \
   --dataset $Dataset used for pretraining$ \
   --data_path $/path/to/ModelNet40-LS$ \
   --fs_head $QAPR_Net$ \
-  --backbone &backbone network&
+  --backbone &backbone network
 ```
 ---
 ## 5. Datasets
