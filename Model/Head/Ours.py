@@ -101,9 +101,6 @@ class QAPR_Net(nn.Module):
         self.temperature = nn.Parameter(torch.tensor(1.0))
         
         self.epoch = 0
-        
-        self.delta_gate = DeltaGate(delta_ratios, feat_dim)
-        self.cross_attn = QSA(feat_dim)
 
     def forward(self, feat: torch.Tensor, label):
         if isinstance(label, (list, tuple)):
