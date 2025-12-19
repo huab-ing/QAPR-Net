@@ -32,4 +32,18 @@ and discriminative category representations under limited supervision.
 ---
 
 ## 3. Code Structure
+The repository is organized as follows:
 
+```text
+QAPR-Net/
+├── Model/
+│   ├── Backbone/          # Feature extractors (e.g., ResNet)
+│   ├── Head/              # Few-shot heads (QAPR-Net, AINet, etc.)
+│   └── Img_few_shot_prj.py # Core 3D-support model wrapper
+├── Dataloader/            # Data loading modules
+│   ├── ModelNet40_split.py # ModelNet40-LS episodic loader
+│   ├── Toy4K.py           # Toy4K dataset loader
+│   └── ShapeNet55.py      # ShapeNet55 loader (if applicable)
+├── util/                  # Utility functions (metrics, logging)
+├── main.py                # Training and evaluation entry
+└── README.md              # Project documentation
