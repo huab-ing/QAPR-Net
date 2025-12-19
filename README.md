@@ -36,14 +36,19 @@ The repository is organized as follows:
 
 ```text
 QAPR-Net/
+├── dataset/
+│   ├──ModelNet40-LS
+│   ├──Toys4k              #e.t.c
 ├── Model/
-│   ├── Backbone/          # Feature extractors (e.g., ResNet)
-│   ├── Head/              # Few-shot heads (QAPR-Net, AINet, etc.)
+│   ├── Backbone/          # Feature extractors
+│   ├── Head/              # Few-shot heads
 │   └── Img_few_shot_prj.py # Core 3D-support model wrapper
 ├── Dataloader/            # Data loading modules
-│   ├── ModelNet40_split.py # ModelNet40-LS episodic loader
-│   ├── Toy4K.py           # Toy4K dataset loader
-│   └── ShapeNet55.py      # ShapeNet55 loader (if applicable)
-├── util/                  # Utility functions (metrics, logging)
-├── main.py                # Training and evaluation entry
-└── README.md              # Project documentation
+│   ├── ModelNet40_split.py # ModelNet40
+│   ├── Toy4K.py           # Toy4K
+├── Pretrain/            # Data loading modules
+│   ├── Data_Loader
+│   ├── main_pretrain.py
+├── util/                  # Utility functions
+├── main.py                # Training and evaluation
+└── README.md
