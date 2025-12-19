@@ -1,7 +1,7 @@
 # QAPR-Net
 
-This repository provides the official PyTorch implementation of **QAPR-Net**,  
-a query-adaptive prototype refinement framework for **3D-guided few-shot image classification**.
+This repository provides the official implementation of **QAPR-Net**,  
+Adaptive Multi-View Refinement for **Enhanced 3D-Guided Few-Shot Image Classification**.
 
 ---
 
