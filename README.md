@@ -56,25 +56,31 @@ QAPR-Net/
 └── README.md
 ```
 ---
-## 4. Usage
-
-Training and evaluation are performed via `main.py` using an episodic learning strategy.
+## 4. Training and Pretraining
 
 Example (ModelNet40):
-
 ```bash
 python main.py \
-  --dataset ModelNet40 \
-  --data_path /path/to/ModelNet40-LS \
-  --fs_head QAPR_Net \
-  --backbone \
+  --exp_name $Your Exp Name$ \
+  --dataset $Dataset used for training$ \
+  --data_path $/path/to/ModelNet40-LS$ \
+  --fs_head $QAPR_Net$ \
+  --backbone &backbone network&
+```
+```bash
+python Pretrain\main_pretrain.py \
+  --exp_name $Your Exp Name$ \
+  --dataset $Dataset used for pretraining$ \
+  --data_path $/path/to/ModelNet40-LS$ \
+  --fs_head $QAPR_Net$ \
+  --backbone &backbone network&
 ```
 ---
 ## 5. Datasets
 The framework is designed to work with multi-view 3D datasets, leveraging 3D structural cues for robust prototype refinement:
 * **ModelNet40**: Standard 3D CAD dataset.
-* **Toys4K**: A dataset featuring diverse 3D objects for recognition tasks.
-> **Note**: Support samples are generated from multi-view 3D projections (e.g., 12 or 14 views), while query samples can be either synthetic or real images depending on specific experimental configurations.
+* **Toys4K**: A large-scale 3D dataset featuring fine-grained object categories for challenging recognition tasks.
+> **Note**: Support samples are generated from multi-view 3D projections (14 views), while query samples can be either synthetic or real images depending on specific experimental configurations.Full access will be granted upon the official publication of the manuscript.
 ---
 ## 6. Notes
 * This codebase is primarily intended for research and academic use.
