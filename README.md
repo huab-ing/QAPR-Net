@@ -54,3 +54,16 @@ QAPR-Net/
 ├── util/                  # Utility functions
 ├── main.py                # Training and evaluation
 └── README.md
+
+## 4. Usage
+
+Training and evaluation are performed via `main.py` using an episodic learning strategy.
+
+Example (ModelNet40):
+
+```bash
+python main.py \
+  --dataset ModelNet40 \
+  --data_path /path/to/ModelNet40-LS \
+  --fs_head QAPR_Net \
+  --backbone \
