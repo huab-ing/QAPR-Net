@@ -38,7 +38,7 @@ The repository is organized as follows:
 QAPR-Net/
 ├── dataset/
 │   ├──ModelNet40-LS
-│   ├──Toys4k              # e.tc
+│   ├──Toys4k              # etc.
 ├── Model/
 │   ├── Backbone/          # Feature extractors
 │   ├── Head/              # Few-shot heads
@@ -48,7 +48,7 @@ QAPR-Net/
 │   ├── Toy4K.py           # Toy4K
 ├── Pretrain/            # Data loading modules
 │   ├── Data_Loader
-│   │   ├──ModelNet40.py    #e.tc
+│   │   ├──ModelNet40.py    #etc.
 │   ├── Pretrain_Loader
 │   ├── main_pretrain.py
 ├── util/                  # Utility functions
@@ -68,3 +68,4 @@ python main.py \
   --data_path /path/to/ModelNet40-LS \
   --fs_head QAPR_Net \
   --backbone \
+```
