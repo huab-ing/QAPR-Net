@@ -55,7 +55,7 @@ QAPR-Net/
 ├── main.py                # Training and evaluation
 └── README.md
 ```
-
+---
 ## 4. Usage
 
 Training and evaluation are performed via `main.py` using an episodic learning strategy.
@@ -69,3 +69,18 @@ python main.py \
   --fs_head QAPR_Net \
   --backbone \
 ```
+---
+## 5. Datasets
+The framework is designed to work with multi-view 3D datasets, leveraging 3D structural cues for robust prototype refinement:
+* **ModelNet40**: Standard 3D CAD dataset.
+* **Toys4K**: A dataset featuring diverse 3D objects for recognition tasks.
+> **Note**: Support samples are generated from multi-view 3D projections (e.g., 12 or 14 views), while query samples can be either synthetic or real images depending on specific experimental configurations.
+---
+## 6. Notes
+* This codebase is primarily intended for research and academic use.
+* For clarity and research reproducibility considerations, certain implementation details—such as specific data preprocessing pipelines and evaluation protocols—are intentionally omitted from this repository.
+* For the exact experimental settings and hyper-parameters used in our paper, please refer to the original manuscript.
+---
+## 📜 License
+
+This project is released for **research purposes only**. The implementation focuses on illustrating the core ideas of QAPR-Net rather than serving as a fully optimized or production-ready system.
