@@ -7,31 +7,13 @@ Adaptive Multi-View Refinement for **Enhanced 3D-Guided Few-Shot Image Classific
 
 ## 1. Introduction
 
-Few-shot image classification under cross-view settings remains challenging, especially when
-support samples provide incomplete or biased visual information.
-Existing approaches often rely on uniform multi-view aggregation, making them sensitive
-to view discrepancies and background noise.
-
 **QAPR-Net** addresses this problem by introducing *query-adaptive multi-view aggregation*
 and *prototype refinement mechanisms*, enabling the model to construct more robust
 and discriminative category representations under limited supervision.
 
 ---
 
-## 2. Key Components
-
-- **Query-adaptive Multi-view Prototype Aggregation**  
-  Dynamically integrates multi-view information conditioned on query-specific features.
-
-- **Spatial–Semantic Prototype Refinement**  
-  Refines category prototypes by jointly modeling spatial structures and semantic consistency.
-
-- **Delta-guided Channel Selection**  
-  Employs a Delta Gate mechanism to select discriminative channels and suppress redundancy.
-
----
-
-## 3. Code Structure
+## 2. Code Structure
 The repository is organized as follows:
 
 ```text
@@ -56,7 +38,7 @@ QAPR-Net/
 └── README.md
 ```
 ---
-## 4. Training and Pretraining
+## 3. Training and Pretraining
 
 Example (ModelNet40):
 ```bash
@@ -76,13 +58,13 @@ python Pretrain\main_pretrain.py \
   --backbone backbone network
 ```
 ---
-## 5. Datasets
+## 4. Datasets
 The framework is designed to work with multi-view 3D datasets, leveraging 3D structural cues for robust prototype refinement:
 * **ModelNet40**: Standard 3D CAD dataset.
 * **Toys4K**: A large-scale 3D dataset featuring **fine-grained** object categories for challenging recognition tasks.
 > **Note**: Support samples are generated from multi-view 3D projections (14 views), while query samples can be either synthetic or real images depending on specific experimental configurations.Full access will be granted upon the official publication of the manuscript.
 ---
-## 6. Notes
+## 5. Notes
 * This codebase is primarily intended for research and academic use.
 * For the exact experimental settings and hyper-parameters used in our paper, please refer to the original manuscript.
 ---
